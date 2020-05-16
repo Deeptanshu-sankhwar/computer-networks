@@ -64,6 +64,10 @@ function chonclick(element) {
   setfocus(element.children[0].textContent);
 }
 
+function isonline(button) {
+  return  "UserInfo : Online"
+}
+
 function getchannels() {
   let channelsocket = new WebSocket("ws://localhost:9005");
 
@@ -85,6 +89,7 @@ function getchannels() {
       node.setAttribute("class", "list-group-item");
       button.appendChild(node)
       button.setAttribute('onclick', 'chonclick(this)')
+      button.setAttribute('title', isonline(this))
       document.getElementById("channel-list").appendChild(button);
       getmsg(channellist[i])
       document.getElementById("msg-box").appendChild(content[channellist[i]]);
