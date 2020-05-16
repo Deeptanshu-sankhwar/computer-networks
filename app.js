@@ -20,7 +20,8 @@ function setfocus(channelname){
 
 function packagemsg(by, msg){
   var node = document.createElement("LI");
-  var textnode = document.createTextNode(by + ' : '+ msg); 
+  var textnode = document.createElement("p");
+  textnode.innerHTML = "<b title = '" + isonline(by) + "'>" + by + ": </b>" + msg;
   node.appendChild(textnode);
   node.setAttribute("class", "list-group-item");
   return node
@@ -64,8 +65,8 @@ function chonclick(element) {
   setfocus(element.children[0].textContent);
 }
 
-function isonline(button) {
-  return  "UserInfo : Online"
+function isonline(by) {
+  return  by + ": Online"
 }
 
 function getchannels() {
