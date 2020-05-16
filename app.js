@@ -107,4 +107,8 @@ function getchannels() {
   // };
 }
 
+function myFunction() {
+  alert("hello")
+}
+
 getchannels()
