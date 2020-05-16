@@ -8,20 +8,20 @@ loginBtn.addEventListener("click", function() {
 });
 
 
-function absolute(base, relative) {
-    let stack = base.split("/"),
-        parts = relative.split("/");
-    stack.pop(); // remove current file name (or empty string)
-    for (var i=0; i<parts.length; i++) {
-        if (parts[i] == ".")
-            continue;
-        if (parts[i] == "..")
-            stack.pop();
-        else
-            stack.push(parts[i]);
-    }
-    return stack.join("/");
-}
+// function absolute(base, relative) {
+//     let stack = base.split("/"),
+//         parts = relative.split("/");
+//     stack.pop(); // remove current file name (or empty string)
+//     for (var i=0; i<parts.length; i++) {
+//         if (parts[i] == ".")
+//             continue;
+//         if (parts[i] == "..")
+//             stack.pop();
+//         else
+//             stack.push(parts[i]);
+//     }
+//     return stack.join("/");
+// }
 
 
 function createLoginObject(username, password) {
@@ -67,8 +67,7 @@ function login(username, password){
             conn.close();
 
             // Promoting to user's page
-            let loc = absolute(window.location.href, "chat.html");
-            location.assign(loc);
+            location.assign(`file://${__dirname}/chat.html`);
         }
     }
     
